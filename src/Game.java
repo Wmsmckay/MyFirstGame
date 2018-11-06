@@ -11,12 +11,19 @@ public class Game extends Canvas implements Runnable{
 
 	private boolean isRunning = false;
 	private Thread thread;
+	private Handler handler;
 	
 	//game constructor
 	public Game() {
 		//This is the size and name of the window
 		new Window(1000, 563, "Dungeon Crawler", this);
 		start();
+		
+		handler = new Handler();
+		
+		//creates a new box and sets its location on the screen
+		handler.addObject(new Box(100, 100));
+		
 	}
 	
 	//this starts the thread
@@ -66,7 +73,7 @@ public class Game extends Canvas implements Runnable{
 	}
 	//updates everything in the game
 	public void tick() {
-		
+		handler.tick();
 	}
 	//renders everything in the game
 	public void render() {
@@ -84,6 +91,8 @@ public class Game extends Canvas implements Runnable{
 		
 		g.setColor(Color.red);
 		g.fillRect(0, 0, 1000, 563);
+		
+		handler.render(g);
 		
 		//////////////////////////////////
 		g.dispose();
