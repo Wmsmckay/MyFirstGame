@@ -20,9 +20,10 @@ public class Game extends Canvas implements Runnable{
 		start();
 		
 		handler = new Handler();
+		this.addKeyListener(new KeyInput(handler));
 		
-		//creates a new box and sets its location on the screen
-		handler.addObject(new Box(100, 100));
+		handler.addObject(new Wizard(100, 100, ID.Player, handler));
+
 		
 	}
 	

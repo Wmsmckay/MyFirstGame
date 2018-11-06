@@ -8,13 +8,16 @@ public abstract class GameObject {
 	protected int x, y;
 	// speed of the object
 	protected float velX = 0, velY = 0;
+	protected ID id;
 	
 	//gameObject constructor
-	public GameObject(int x, int y) {
+	public GameObject(int x, int y, ID id) {
 		this.x = x;
 		this.y = y;
+		this.id = id;
 	}
 	
+
 	//this updates the object
 	public abstract void tick();
 	//this renders the object
@@ -48,11 +51,21 @@ public abstract class GameObject {
 		this.velX = velX;
 	}
 
-	public float getVely() {
+	public float getVelY() {
 		return velY;
 	}
 
 	public void setVelY(float velY) {
 		this.velY = velY;
+	}
+
+
+	public ID getId() {
+		return id;
+	}
+
+
+	public void setId(ID id) {
+		this.id = id;
 	}
 }
